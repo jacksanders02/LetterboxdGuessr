@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export function BrushTwo({ className }: {  className?: string }): React.ReactElement {
+export default function BrushTwo({ className }: { className?: string }): React.ReactElement {
   return (
     <svg
       version="1.1"
@@ -18,5 +18,5 @@ export function BrushTwo({ className }: {  className?: string }): React.ReactEle
         />
       </g>
     </svg>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-export { Logo } from './Logo';
-export { BrushOne } from './BrushOne';
-export { BrushTwo } from './BrushTwo';
-export { BrushThree } from './BrushThree';
-export { BrushFour } from './BrushFour';
-export { BrushFive } from './BrushFive';
+export { default as Logo } from './Logo';
+export { default as BrushOne } from './BrushOne';
+export { default as BrushTwo } from './BrushTwo';
+export { default as BrushThree } from './BrushThree';
+export { default as BrushFour } from './BrushFour';
+export { default as BrushFive } from './BrushFive';

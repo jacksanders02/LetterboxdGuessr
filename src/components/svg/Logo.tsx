@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export function Logo({ className }: {  className?: string }): React.ReactElement {
+export default function Logo({ className }: { className?: string }): React.ReactElement {
   return (
     <svg
       width="1941.2345mm"

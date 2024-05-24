@@ -8,20 +8,24 @@
   "ignorePatterns": [
     "next.config.js",
     "postcss.config.js",
-    "public/residence_evil/residence_evil.js"
+    "tailwind.config.js"
   ],
   "plugins": ["@typescript-eslint"],
   "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks"],
 
   "rules": {
-    "@typescript-eslint/semi": [1, "always"],
+    "@typescript-eslint/semi": [2, "always"],
     "semi": 0,
     "no-plusplus": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-        "": "never"
+        "": "never",
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "no-param-reassign": [2, { "props":  false }],

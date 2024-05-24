@@ -6,7 +6,7 @@ import {
   Noto_Color_Emoji,
   DM_Sans,
 } from 'next/font/google';
-import localFont from "next/font/local";
+import localFont from 'next/font/local';
 import { NextFont } from 'next/dist/compiled/@next/font';
 
 export const fontEmoji: NextFont = Noto_Color_Emoji({
@@ -24,4 +24,4 @@ export const fontSans: NextFont = DM_Sans({
 export const fontTitle = localFont({
   src: './PoetsenOne.ttf',
   display: 'swap',
-})
+});
