@@ -1,11 +1,12 @@
 import { fontTitle } from "@/app/fonts";
 import { BrushOne, BrushThree, BrushTwo, Logo } from "@/components/svg";
 import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+export default function Home(): React.ReactNode {
   return (
     <main className={`flex flex-col items-center justify-between p-12 ${fontTitle.className} text-4xl`}>
-      <div className="flex flex-col items-center justify-between flex-fill-space text-5xl md:text-7xl lg:text-8xl">
+      <div className="flex flex-col items-center justify-between text-5xl md:text-7xl lg:text-8xl">
         <h1 className={'-ms-24 md:-ms-52 lg:-ms-72 mb-2'}>Letterboxd</h1>
         <Logo className="w-52 h-16 md:w-72 md:h-24 lg:w-96 lg:h-32 stroke-2" />
         <h1 className={'ms-24 md:ms-48'}>
