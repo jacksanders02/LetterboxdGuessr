@@ -1,0 +1,41 @@
+{
+  "name": "letterboxdguessr",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --color . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint --color . --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "dependencies": {
+    "@types/react-dom": "18.2.4",
+    "@vercel/analytics": "^1.0.1",
+    "@vercel/speed-insights": "^1.0.3",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.12",
+    "@types/node": "20.4.3",
+    "@types/react": "18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "postcss": ">=8.4.31",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1",
+    "typescript": "5.1.6"
+  }
+}

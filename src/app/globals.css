@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text: #1E1E1E;
+    --background: #F1EEE7;
+    --lb-one: #FF8000;
+    --lb-two: #08D455;
+    --lb-three: #40BCF4;
+    --success: #2d5936;
+    --info: #9adcc7;
+    --error: #BC4749;
+
+    /* Mix to get a hover colour */
+    --text-hover: color-mix(in srgb, var(--text), #fff 33%);
+    --background-hover: color-mix(in srgb, var(--background), #000 15%);
+
+    --success-hover: color-mix(in srgb, var(--success), #fff 33%);
+    --info-hover: color-mix(in srgb, var(--info), #000 33%);
+    --error-hover: color-mix(in srgb, var(--error), #000 33%);
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @apply text-text;
+  @apply stroke-text;
+  @apply fill-text;
+  @apply bg-background;
+}
+
+main {
+  @apply flex-fill-remaining-space
+}
+
+/*===TAILWIND UTILS===========================================================*/
+@layer utilities {
+  .flex-fill-remaining-space {
+    flex: 1 0 auto;
+  }
+
+  .hover-button {
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      stroke 0.2s ease-in-out;
+    stroke: var(--text);
+    color: var(--background);
+
+    &:hover {
+      @media (hover: hover) {
+        stroke: var(--text-hover);
+      }
+    }
+  }
+
+  .hover-link {
+    cursor: pointer;
+    transition:
+      color 0.2s ease-in-out,
+      stroke 0.2s ease-in-out;
+
+    color: var(--text);
+    stroke: var(--text);
+
+    &:hover {
+      @media (hover: hover) {
+        color: var(--text-hover);
+        stroke: var(--text-hover);
+      }
+    }
+  }
+
+  /*===MODALS===================================================================*/
+  .modal {
+    pointer-events: none;
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+
+    /* use :not here so that container has no `transform` property when active */
+    /* `transform` prevents fixed elements from being positioned relative to viewport (thanks css) */
+    &:not(.active) {
+      &>.modal-container, &>.max-lg\:modal-container, &>.max-xl\:modal-container {
+        transform: translateY(50px);
+      }
+    }
+
+    &.active {
+      pointer-events: auto;
+
+      &>.modal-overlay {
+        opacity: 0.5;
+      }
+
+      &>.modal-container, &>.max-lg\:modal-container, &>.max-xl\:modal-container {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+  }
+
+  .modal-container {
+    @apply w-5/6;
+    @apply shadow-lg;
+
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 1.5rem;
+    overflow-y: auto;
+    border-radius: .25rem;
+    background-color: var(--background);
+
+    opacity: 0;
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+
+    z-index: 10;
+  }
+
+  .modal-body {
+    max-height: calc(100vh - 210px);
+    padding-right: 5px;
+    overflow-y: auto;
+  }
+  /*==END-MODALS==============================================================*/
+
+  /*===FLASH MESSAGES=========================================================*/
+  .flash {
+    @apply fixed;
+    @apply top-0;
+    @apply p-2;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply w-screen;
+    @apply transition-transform;
+
+    .flash-error {
+      background: var(--error);
+      color: var(--background);
+    }
+
+    .flash-success {
+      background: var(--success);
+      color: var(--background);
+    }
+
+    .flash-info {
+      background: var(--info);
+      color: var(--text);
+    }
+  }
+  /*==END-ALERTS==============================================================*/
+}
+
