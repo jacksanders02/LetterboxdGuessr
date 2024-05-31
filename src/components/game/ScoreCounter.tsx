@@ -10,7 +10,7 @@ export default function ScoreCounter() {
       setScore(score + (evt as CustomEvent).detail.amount);
     });
 
-    document.addEventListener('reset-score', (evt) => {
+    document.addEventListener('reset-score', () => {
       setScore(0);
     });
   });
