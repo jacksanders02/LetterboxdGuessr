@@ -1,0 +1,49 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Movie {
+  id           String       @id // IMDB ID
+  title        String       @unique
+  year         Int
+  genre        String
+  poster       String
+  criticRating Float?
+  crewMembers  CrewMember[]
+  reviews      Review[]
+}
+
+model Review {
+  id       Int    @id
+  movieId  String
+  Movie    Movie  @relation(fields: [movieId], references: [id])
+  reviewer String
+  rating   Int?
+  link     String
+  text     String
+}
+
+model Worker {
+  id    Int          @id @default(autoincrement())
+  name  String       @unique
+  link  String
+  roles CrewMember[]
+}
+
+model CrewMember {
+  movieId  String
+  workerId Int
+  Movie    Movie  @relation(fields: [movieId], references: [id])
+  Worker   Worker @relation(fields: [workerId], references: [id])
+  role     String
+
+  @@id([movieId, workerId])
+}
