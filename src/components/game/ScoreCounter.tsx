@@ -6,7 +6,13 @@ export default function ScoreCounter() {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    document.addEventListener('update-score', () => setScore(score + 1));
+    document.addEventListener('update-score', (evt) => {
+      setScore(score + (evt as CustomEvent).detail.amount);
+    });
+
+    document.addEventListener('reset-score', (evt) => {
+      setScore(0);
+    });
   });
 
   return (
