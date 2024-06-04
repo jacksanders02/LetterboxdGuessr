@@ -112,11 +112,13 @@ export default function MovieInfo() {
           <div
             className="max-lg:h-48 max-h-80 max-w-[13.5rem] aspect-[300/445] relative"
           >
-            <Image
-              src={`/_next/image?url=${allReviews[review].Movie.poster}&w=${2 ** (3 + Math.min(3, guesses))}&q=1`}
-              alt={"The movie's poster (blurred)"}
-              fill
-            />
+            {guesses > 0 && (
+              <Image
+                src={`/_next/image?url=${allReviews[review].Movie.poster}&w=${2 ** (3 + Math.min(3, guesses))}&q=1`}
+                alt={"The movie's poster (blurred)"}
+                fill
+              />
+            )}
           </div>
           <div className="flex flex-col gap-4 text-xs xl:text-base">
             {guesses > 0 && (
