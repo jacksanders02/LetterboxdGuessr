@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import prisma from '../../../../lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Shuffles an array in-place using the Durstenfeld shuffle
  * yoink https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
